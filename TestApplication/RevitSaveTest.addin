@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>Application</Name>
+    <Assembly>C:\Users\lxysa\Desktop\RevitSaveTest\TestApplication\bin\Debug\TestApplication.dll</Assembly>
+    <ClientId>a64e0202-e64a-47f4-a13a-43f63b62d0bc</ClientId>
+    <FullClassName>TestApplication.Application</FullClassName>
+    <VendorId>ADSK</VendorId>
+    <VendorDescription>Autodesk, www.autodesk.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>
