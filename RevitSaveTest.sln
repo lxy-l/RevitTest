@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportRVTCommand", "ImportRVTCommand\ImportRVTCommand.csproj", "{C83C9653-9A03-472F-A093-49946CDC62D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{D17A809B-5461-4F94-8309-540D571D25B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{C83C9653-9A03-472F-A093-49946CDC62D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C83C9653-9A03-472F-A093-49946CDC62D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C83C9653-9A03-472F-A093-49946CDC62D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D17A809B-5461-4F94-8309-540D571D25B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D17A809B-5461-4F94-8309-540D571D25B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D17A809B-5461-4F94-8309-540D571D25B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D17A809B-5461-4F94-8309-540D571D25B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
