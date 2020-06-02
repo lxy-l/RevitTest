@@ -20,73 +20,44 @@ namespace PlaceRfaCommand
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             UIApplication app = commandData.Application;
-            Document uidoc = app.ActiveUIDocument.Document;
+            Document doc = app.ActiveUIDocument.Document;
             if (!File.Exists(rfaPath))
             {
                 message = "族不存在!";
                 return Result.Failed;
 
             }
-            Document familyDoc = uidoc.Application.OpenDocumentFile(rfaPath);
-            using (Transaction doctran = new Transaction(uidoc, "Load"))
+            Document familyDoc = doc.Application.OpenDocumentFile(rfaPath);
+            FamilySymbol familySymbol=null;
+            using (Transaction doctran = new Transaction(doc, "Load"))
             {
                 doctran.Start();
-                if (uidoc.LoadFamily(rfaPath, out Family family))
+                if (doc.LoadFamily(rfaPath, out Family family))
                 {
-                    FamilySymbol familySymbol = uidoc.GetElement(family.GetFamilySymbolIds().First()) as FamilySymbol;
-                    familySymbol.Activate();
-                    try
-                    {
-                        RevitCommandId commandId = RevitCommandId.LookupCommandId("ID_OBJECTS_FAMSYM");
-                        if (app.CanPostCommand(commandId))
-                        {
-                            app.PostCommand(commandId);
-                        }
-                        doctran.Commit();
-                        return Result.Succeeded;
-                    }
-                    catch (Autodesk.Revit.Exceptions.OperationCanceledException)
-                    {
-                        message = "已取消放置";
-                        return Result.Cancelled;
-                    }
+                    doctran.Commit();
+                    familySymbol = doc.GetElement(family.GetFamilySymbolIds().First()) as FamilySymbol;
                 }
                 else
                 {
-                    FamilySymbol familySymbol = new FilteredElementCollector(uidoc).OfClass(typeof(FamilySymbol)).Select(p => p as FamilySymbol).FirstOrDefault(p => p.Name == familyDoc.Title.Replace(".rfa",""));
-                    if (familySymbol==null)
-                    {
-                        message = "族没有实例！";
-                        return Result.Failed;
-                    }
-
-                    familySymbol.Activate();
-                    try
-                    {
-                        RevitCommandId commandId = RevitCommandId.LookupCommandId("ID_OBJECTS_FAMSYM");
-                        if (app.CanPostCommand(commandId))
-                        {
-                            app.PostCommand(commandId);
-                        }
-                        doctran.Commit();
-                        return Result.Succeeded;
-                    }
-                    catch (Autodesk.Revit.Exceptions.OperationCanceledException)
-                    {
-                        message = "已取消放置";
-                        return Result.Cancelled;
-                    }
-
+                    familySymbol = new FilteredElementCollector(doc).OfClass(typeof(FamilySymbol)).Select(p => p as FamilySymbol).FirstOrDefault(p => p.Name == familyDoc.Title.Replace(".rfa", ""));
                 }
-
-            }
+                if (familySymbol != null)
+                {
+                    if (doctran.GetStatus()!=TransactionStatus.Started)
+                    {
+                        doctran.Start();
+                    }
+                    familySymbol.Activate();
+                    RevitCommandId commandId = RevitCommandId.LookupCommandId("ID_OBJECTS_FAMSYM");
+                    if (app.CanPostCommand(commandId))
+                    {
+                        app.PostCommand(commandId);
+                    }
+                    doctran.Commit();
+                }
+            }        
+            return Result.Succeeded;
         }
-
-        private static bool PlaceRfa()
-        {
-
-        }
-
         private class projectFamLoadOption : IFamilyLoadOptions
         {
             public bool OnFamilyFound(bool familyInUse, out bool overwriteParameterValues)
