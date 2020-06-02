@@ -53,10 +53,24 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="2014\AdWindows.dll" />
+    <Content Include="2014\RevitAPI.dll" />
+    <Content Include="2014\RevitAPI.xml" />
+    <Content Include="2014\RevitAPIUI.dll" />
+    <Content Include="2014\RevitAPIUI.xml" />
+    <Content Include="2015\AdWindows.dll" />
+    <Content Include="2015\RevitAPI.dll" />
+    <Content Include="2015\RevitAPI.xml" />
+    <Content Include="2015\RevitAPIUI.dll" />
+    <Content Include="2015\RevitAPIUI.xml" />
     <Content Include="2016\RevitAddInUtility.dll" />
     <Content Include="2016\RevitAPI.dll" />
     <Content Include="2016\RevitAPIUI.dll" />
     <Content Include="2016\RevitNET.dll" />
+    <Content Include="2017\RevitAPI.dll" />
+    <Content Include="2017\RevitAPIUI.dll" />
+    <Content Include="2018\RevitAPI.dll" />
+    <Content Include="2018\RevitAPIUI.dll" />
     <Content Include="2020\RevitAddInUtility.dll" />
     <Content Include="2020\RevitAPI.dll" />
     <Content Include="2020\RevitAPIUI.dll" />
