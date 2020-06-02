@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportRVTCommand", "ImportR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{D17A809B-5461-4F94-8309-540D571D25B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaceRfaCommand", "PlaceRfaCommand\PlaceRfaCommand.csproj", "{CC6915BE-A24E-4BD5-BAA1-0CE57C74D56C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{D17A809B-5461-4F94-8309-540D571D25B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D17A809B-5461-4F94-8309-540D571D25B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D17A809B-5461-4F94-8309-540D571D25B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC6915BE-A24E-4BD5-BAA1-0CE57C74D56C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC6915BE-A24E-4BD5-BAA1-0CE57C74D56C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC6915BE-A24E-4BD5-BAA1-0CE57C74D56C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC6915BE-A24E-4BD5-BAA1-0CE57C74D56C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
